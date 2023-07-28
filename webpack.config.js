@@ -13,10 +13,13 @@ module.exports = {
     },
     devtool: 'eval-cheap-module-source-map',
     devServer: {
-        contentBase: path.join(__dirname, 'dist'),
-        port: 9000,
+        static: {
+            directory: path.resolve(__dirname, 'dist'),
+        },
+        port: 9121,
         host: '0.0.0.0',
-        hot: true
+        hot: true,
+        open: true,
     },
     module: {
         rules: [

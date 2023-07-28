@@ -11,13 +11,18 @@ module.exports = {
         path: path.resolve(__dirname, 'dist'),
         filename: 'main.js'
     },
+    resolve: {
+        alias: {
+            '@': path.resolve(__dirname, 'src'),
+        },
+    },
     devtool: 'eval-cheap-module-source-map',
     devServer: {
         static: {
             directory: path.resolve(__dirname, 'public'),
         },
         port: 9121,
-        host: '0.0.0.0',
+        host: '0.0.0.0', // localhost
         hot: true,
         open: true,
     },
@@ -43,7 +48,7 @@ module.exports = {
     },
     plugins: [
         new CleanWebpackPlugin(),
-        new HtmlWebPackPlugin({ template: './src/index.html' }),
+        new HtmlWebPackPlugin({ template: path.resolve(__dirname, 'src/index.html') }),
         new webpack.HotModuleReplacementPlugin(),
         new CopyWebpackPlugin(
             { patterns: [{ from: path.resolve(__dirname, 'public'), to: 'public' }] }

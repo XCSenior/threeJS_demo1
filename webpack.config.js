@@ -14,7 +14,7 @@ module.exports = {
     devtool: 'eval-cheap-module-source-map',
     devServer: {
         static: {
-            directory: path.resolve(__dirname, 'dist'),
+            directory: path.resolve(__dirname, 'public'),
         },
         port: 9121,
         host: '0.0.0.0',

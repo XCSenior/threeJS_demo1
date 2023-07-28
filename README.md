@@ -18,11 +18,17 @@
 # 用一个案例来入门 threejs （用threejs做一个简单的3D场景内添加标点的工具）
 # 环境准备（使用webpack）
 ## 1、初始化nodejs项目
+
+```shell
 npm init -y
+```
 
 ## 2、安装webpack、webpack-cli
+
+```sh
 npm i --save-dev webpack
 npm i --save-dev webpack-cli
+```
 
 ## 3、创建 webpack.config.js ，具体配置可以看本教程所属项目的 webpack.config.js
 

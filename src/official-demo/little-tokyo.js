@@ -33,7 +33,7 @@ scene.environment = pmremGenerator.fromScene(
 const camera = new THREE.PerspectiveCamera(
     40,
     window.innerWidth / window.innerHeight,
-    1,
+    0.5,
     100
 );
 camera.position.set(5, 2, 8);

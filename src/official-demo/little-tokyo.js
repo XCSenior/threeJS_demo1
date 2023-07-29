@@ -39,10 +39,10 @@ const camera = new THREE.PerspectiveCamera(
 camera.position.set(5, 2, 8);
 
 const controls = new OrbitControls(camera, renderer.domElement);
-controls.target.set(0, 0.5, 0);
-controls.update();
-controls.enablePan = false;
-controls.enableDamping = true;
+controls.target.set(0, 0.5, 0); // 设置了相机围绕其旋转的目标点
+controls.update(); // 更新控制器的内部状态，需要在任何修改之后调用
+controls.enablePan = false; // 禁用通过鼠标移动目标点
+controls.enableDamping = true; // 相机移动时产生平滑的效果
 
 const dracoLoader = new DRACOLoader();
 dracoLoader.setDecoderPath("/public/jsm/libs/draco/gltf/");
@@ -67,6 +67,7 @@ loader.load("models/gltf/LittlestTokyo.glb", function (gltf) {
 );
 
 window.onresize = function () {
+    // 长宽比
     camera.aspect = window.innerWidth / window.innerHeight;
     camera.updateProjectionMatrix();
 

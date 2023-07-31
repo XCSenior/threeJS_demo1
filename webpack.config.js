@@ -41,6 +41,15 @@ module.exports = {
                 use: ['style-loader', 'css-loader'],
             },
             {
+                test: /\.scss$/i,
+                exclude: /node_modules/,
+                use: [
+                    'style-loader', // 将CSS通过<style>标签插入到页面中
+                    'css-loader', // 解析处理CSS文件中的import和url()等
+                    'sass-loader' // 将SCSS编译为CSS
+                ],
+            },
+            {
                 test: /\.html$/,
                 loader: 'html-loader'
             },

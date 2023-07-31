@@ -1,6 +1,7 @@
 import * as THREE from "three";
 
 import Stats from "three/examples/jsm/libs/stats.module.js";
+import { CSS3DRenderer, CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import { RoomEnvironment } from "three/examples/jsm/environments/RoomEnvironment.js";
@@ -36,7 +37,7 @@ const camera = new THREE.PerspectiveCamera(
     0.5,
     100
 );
-camera.position.set(5, 2, 8);
+camera.position.set(5, 2, 10);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.target.set(0, 0.5, 0); // 设置了相机围绕其旋转的目标点
@@ -74,6 +75,32 @@ window.onresize = function () {
     renderer.setSize(window.innerWidth, window.innerHeight);
 };
 
+
+const cssRenderer = new CSS3DRenderer();
+cssRenderer.setSize(200, 160);
+container.appendChild(cssRenderer.domElement);
+
+const buttonElement = document.createElement('button');
+buttonElement.innerHTML = 'Button';
+buttonElement.addEventListener('click', () => {
+    console.log('Button clicked');
+});
+
+const buttonObject = new CSS3DObject(buttonElement);
+// 设置按钮的位置、旋转和缩放
+buttonObject.scale.set(0.1, 0.1, 0.1);
+buttonObject.position.set(0, 0, 0);
+// buttonObject.rotation.set(rx, ry, rz);
+// buttonObject.scale.set(sx, sy, sz);
+
+scene.add(buttonObject);
+
+
+
+
+
+
+
 function animate() {
     requestAnimationFrame(animate);
 
@@ -85,5 +112,6 @@ function animate() {
 
     stats.update();
 
-    renderer.render(scene, camera);
+    renderer.render(scene, camera); // 小小东京
+    cssRenderer.render(scene, camera); // 尝试渲染一个DOM元素按钮
 }

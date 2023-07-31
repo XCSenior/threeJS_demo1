@@ -55,7 +55,7 @@ loader.load("models/gltf/LittlestTokyo.glb", function (gltf) {
         model.scale.set(0.01, 0.01, 0.01);
         scene.add(model);
 
-        mixer = new THREE.AnimationMixer(model);
+        mixer = new THREE.AnimationMixer(model); // 播放模型动画
         mixer.clipAction(gltf.animations[0]).play();
 
         animate();
@@ -77,7 +77,7 @@ window.onresize = function () {
 function animate() {
     requestAnimationFrame(animate);
 
-    const delta = clock.getDelta();
+    const delta = clock.getDelta(); // 获取浏览器的刷新频率，设置动画刷新帧速率
 
     mixer.update(delta);
 

@@ -19,7 +19,7 @@ container.appendChild(stats.dom);
 
 const renderer = new THREE.WebGLRenderer({ antialias: true });
 renderer.setPixelRatio(window.devicePixelRatio);
-renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setSize(window.innerWidth, 400);
 container.appendChild(renderer.domElement);
 
 const pmremGenerator = new THREE.PMREMGenerator(renderer);
@@ -77,7 +77,7 @@ window.onresize = function () {
 
 
 const cssRenderer = new CSS3DRenderer();
-cssRenderer.setSize(200, 160);
+cssRenderer.setSize(400, 300);
 container.appendChild(cssRenderer.domElement);
 
 const buttonElement = document.createElement('button');
@@ -94,10 +94,6 @@ buttonObject.position.set(0, 0, 0);
 // buttonObject.scale.set(sx, sy, sz);
 
 scene.add(buttonObject);
-
-
-
-
 
 
 
